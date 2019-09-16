@@ -1,57 +1,44 @@
 package com.rab3.repositories;
 
-import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session; 
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.rab3.entities.CustomerEntity;
+import com.rab3.entities.CustomerLoginEntity;
 
 @Repository
-public class CustomerRepository {
+public class CustomerLoginRepository {
 
 	private SessionFactory sessionFactory;
 	
-	public void save(CustomerEntity customer) {
+	public void save(CustomerLoginEntity customerLogin) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		session.save(customer);
+		session.save(customerLogin);
 		session.getTransaction().commit();
 		session.close();
 	}
 	
-	public List<CustomerEntity>  getCustomerByName(String name) {
+	public CustomerLoginEntity getByUsername(String userid) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
+		Query q= session.createQuery("From CustomerLoginEntity cl where cl.username = :uname");
+		q.setParameter("uname", userid);
 		
-		Query query = 
-				session.createQuery("from CustomerEntity c where c.name =:namePmr");
-		query.setParameter("namePmr", name);
-		List<CustomerEntity> custList = query.list();
-		
-		session.getTransaction().commit();
-		session.close();
-		return custList;
-	}
-	
-	public CustomerEntity getCustomerById(Long id) {
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-		
-		CustomerEntity cust = (CustomerEntity) session.get(CustomerEntity.class, id);
+		CustomerLoginEntity loginEntity = (CustomerLoginEntity) q.uniqueResult();
 		session.getTransaction().commit();
 		session.close();
 		
-		return cust;
+		return loginEntity;
 	}
 	
-	public void update(CustomerEntity customer) {
+	public void update(CustomerLoginEntity customerLogin) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		session.merge(customer);
+		session.merge(customerLogin);
 		
 		session.getTransaction().commit();
 		session.close();

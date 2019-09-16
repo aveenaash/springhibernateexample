@@ -33,6 +33,14 @@ public class HibernateMain {
 		CustomerEntity customer1 = customerRepository.getCustomerById(4l);
 		System.out.println(customer1.toString());
 		
+		System.out.println("******* update example*********");
+		CustomerEntity custUpdate = customerRepository.getCustomerById(5l);
+		custUpdate.setEmail("updatedneweamil@gmail.com");
+		custUpdate.setPhone("10000000000");
+		customerRepository.update(custUpdate);
+		
+		
+		
 		
 	}
 

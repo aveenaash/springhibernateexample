@@ -19,6 +19,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.rab3.entities.CustomerEntity</value>
+				<value>com.rab3.entities.CustomerLoginEntity</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -31,6 +32,10 @@
 	</bean>
 	
 	<bean id="customerRepository" class="com.rab3.repositories.CustomerRepository">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="customerLoginRepository" class="com.rab3.repositories.CustomerLoginRepository">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
