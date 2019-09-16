@@ -37,7 +37,7 @@ public class CustomerLoginEntity {
 	private Date lastSignedOn;
 	
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "customer_id")
+	@JoinColumn(name = "customer_id", referencedColumnName = "id")
 	private CustomerEntity customer;
 
 	public Long getId() {
