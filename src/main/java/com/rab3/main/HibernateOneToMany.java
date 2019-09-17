@@ -30,17 +30,20 @@ public class HibernateOneToMany {
 		System.out.println("******category by name********");
 		System.out.println(electonics.toString());
 		
-		ProductEntity productiphone = new ProductEntity();
-		productiphone.setName("I phone X");
-		productiphone.setDescription("this is iphone x unlocked");
-		productiphone.setBrand("Apple");
-		productiphone.setPrice(1119d);
-		productiphone.setCreatedAt(new Date());
-		productiphone.setIsAvailable(true);
-		productiphone.setCategory(electonics);
+//		ProductEntity productiphone = new ProductEntity();
+//		productiphone.setName("I phone X");
+//		productiphone.setDescription("this is iphone x unlocked");
+//		productiphone.setBrand("Apple");
+//		productiphone.setPrice(1119d);
+//		productiphone.setCreatedAt(new Date());
+//		productiphone.setIsAvailable(true);
+//		productiphone.setCategory(electonics);
+//		
+//		electonics.getProducts().add(productiphone);
+//		categoryRepository.update(electonics);
 		
-		electonics.getProducts().add(productiphone);
-		categoryRepository.update(electonics);
+		
+		
 		
 		
 	}

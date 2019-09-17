@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
@@ -38,7 +39,7 @@ public class ProductEntity {
 	@Column(name = "is_available")
 	private Boolean isAvailable;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="category_id")
 	private CategoryEntity category;
 	
@@ -112,5 +113,12 @@ public class ProductEntity {
 	public void setCategory(CategoryEntity category) {
 		this.category = category;
 	}
+
+	@Override
+	public String toString() {
+		return "ProductEntity [id=" + id + ", name=" + name + ", description=" + description + ", createdAt="
+				+ createdAt + ", brand=" + brand + ", price=" + price + ", isAvailable=" + isAvailable + "]";
+	}
+	
 		
 }

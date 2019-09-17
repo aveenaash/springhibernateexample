@@ -43,6 +43,10 @@
 	<bean id="categoryRepository" class="com.rab3.repositories.CategoryRepository">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	
+	<bean id="productRepository" class="com.rab3.repositories.ProductRepository">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 
 
 </beans>
