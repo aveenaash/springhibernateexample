@@ -45,3 +45,26 @@ is_available boolean default true,
 primary key (id),
 foreign key(category_id) references category(id) 
 );
+
+create table employee(
+id bigint(15) not null auto_increment,
+name varchar(100) not null,
+email varchar(100) not null,
+phone varchar(20) not null,
+position varchar(20) not null,
+primary key (id));
+
+create table project(
+id bigint(15) not null auto_increment,
+name varchar(100) not null,
+description varchar(200),
+budget double not null,
+location varchar(50) not null,
+primary key (id) );
+
+create table employee_project(
+employee_id bigint(15) not null,
+project_id bigint(15) not null,
+primary key (employee_id, project_id),
+foreign key(employee_id) references employee(id),
+foreign key (project_id) references project(id));

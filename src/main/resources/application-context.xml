@@ -22,6 +22,8 @@
 				<value>com.rab3.entities.CustomerLoginEntity</value>
 				<value>com.rab3.entities.ProductEntity</value>
 				<value>com.rab3.entities.CategoryEntity</value>
+				<value>com.rab3.entities.EmployeeEntity</value>
+				<value>com.rab3.entities.ProjectEntity</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -47,6 +49,13 @@
 	<bean id="productRepository" class="com.rab3.repositories.ProductRepository">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	
+	<bean id="employeeRepository" class="com.rab3.repositories.EmployeeRepository">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 
+<bean id="projectRepository" class="com.rab3.repositories.ProjectRepository">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 
 </beans>

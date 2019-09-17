@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
@@ -45,6 +44,7 @@ public class ProductEntity {
 	
 	@PrePersist
 	public void onCreate() {
+		
 		if(this.createdAt == null) {
 			this.createdAt = new Date();
 		}

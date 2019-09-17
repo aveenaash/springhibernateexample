@@ -22,7 +22,7 @@ public class HibernateManyToOne {
 		
 		System.out.println("***** creating product*****");
 		ProductEntity product1 = new ProductEntity();
-		product1.setName("Mac book");
+		product1.setName("Mac book 15");
 		product1.setBrand("Apple");
 		product1.setDescription("thi is a macbook");
 		product1.setPrice(1500d);
