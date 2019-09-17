@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity
@@ -39,6 +41,20 @@ public class CustomerLoginEntity {
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "customer_id", referencedColumnName = "id")
 	private CustomerEntity customer;
+	
+	@PrePersist
+	public void onCreate() {
+		if(this.createdAt == null) {
+			this.createdAt = new Date();
+		}
+	}
+	
+	@PreUpdate
+	public void onUpdate() {
+		if(this.updatedAt == null) {
+			this.updatedAt = new Date();
+		}
+	}
 
 	public Long getId() {
 		return id;
